@@ -1,9 +1,10 @@
-import debug_toolbar.urls
-
-from django.conf.urls.defaults import patterns, include
+import urls
+#AGS:20150816: Django 1.4 to 1.8 migration
+#from django.conf.urls.defaults import patterns, include
+from django.conf.urls import patterns, url, include
 
 from fusionbox.panels.user_panel.urls import urlpatterns
 
-debug_toolbar.urls.urlpatterns += patterns('',
+urls.urlpatterns += patterns('',
     ('', include(urlpatterns)),
 )
