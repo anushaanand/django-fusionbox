@@ -2,7 +2,7 @@ from decimal import Decimal, ROUND_HALF_UP, InvalidOperation
 
 # `setlocale` is not threadsafe
 import locale
-locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+locale.setlocale(locale.LC_ALL, '')
 
 import re
 import warnings
@@ -18,7 +18,9 @@ from django import template
 from django.conf import settings
 
 from BeautifulSoup import BeautifulSoup
-from django.utils import simplejson
+#AGS:20150816: simplejson removed from django.utils in Django >1.5
+#from django.utils import simplejson
+import json
 from django.utils.safestring import mark_safe
 from django.contrib.humanize.templatetags.humanize import intcomma
 from django.core.exceptions import ImproperlyConfigured
