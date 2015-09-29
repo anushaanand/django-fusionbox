@@ -19,9 +19,9 @@ class QuerySetManager(models.Manager):
                 return self.filter(is_published=True)
     """
     use_for_related_fields = True
-    def get_query_set(self):
+    def get_queryset(self):
         return self.model.QuerySet(self.model)
     def __getattr__(self, attr, *args):
         if attr.startswith('__') or attr == 'delete':
             raise AttributeError
-        return getattr(self.get_query_set(), attr, *args)
+        return getattr(self.get_queryset(), attr, *args)
